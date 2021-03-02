@@ -12,7 +12,7 @@ def index():
     message = 'Hello World'
     return render_template('index.html',message = message)
 
-@app.route('/pitch/<pitch_id>')
+@app.route('/pitch/<int:pitch_id>')
 def pitch(pitch_id):
 
     '''
