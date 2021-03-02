@@ -1,5 +1,8 @@
 from flask import render_template
 from app import app
+from .models import review
+from .forms import ReviewForm
+Review = review.Review
 
 # Views
 @app.route('/')
@@ -28,3 +31,18 @@ def index():
 
     title = 'Home - Welcome to The best Pitch Review Website Online'
     return render_template('index.html', title = title)
+
+@app.route('/pitch/review/new/<int:id>', methods = ['GET','POST'])
+def new_review(id):
+    form = ReviewForm()
+    pitch = get_pitch(id)
+
+    if form.validate_on_submit():
+        title = form.title.data
+        review = form.review.data
+        new_review = Review(pitch.id,title,pitch.poster,review)
+        new_review.save_review()
+        return redirect(url_for('pitch',id = pitch.id ))
+
+    title = f'{pitch.title} review'
+    return render_template('new_review.html',title = title, review_form=form, pitch=pitch)
