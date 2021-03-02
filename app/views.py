@@ -11,3 +11,11 @@ def index():
 
     message = 'Hello World'
     return render_template('index.html',message = message)
+
+@app.route('/pitch/<movie_id>')
+def pitch(movie_id):
+
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    return render_template('pitch.html',id = pitch_id)
