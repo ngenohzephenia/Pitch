@@ -1,2 +1,4 @@
-virtual/
+venv/
 *.pyc
+instance/
+vscode/

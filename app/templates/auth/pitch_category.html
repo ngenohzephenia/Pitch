@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %} 
+{% import 'macros.html' as macro%}
+
+<!-- content block -->
+{% block content %}
+<h3 class="text-center">{{category.name|upper}} Pitch</h3>
+<hr>
+{% if pitches %}
+
+{{ macro.displayPitches(pitches)}}
+
+{%else%}
+<div class="container">
+  <h4>pitches not available</h4>
+</div>
+
+
+{% endif %}
+<a class="btn btn-primary" href="/category/pitch/new/{{category.id}}">Write a new Pitch</a>
+{% endblock %}

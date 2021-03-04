@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+</head>
+<body>
+    <html>
+<nav>
+  <head>
+    <meta charset="utf-8">
+    <title>Pitch app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <styles>
+  </styles>
+  <body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <div class="navbar">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="font-size:x-large; font-weight: bold; color:blue">Pitch App</a>
+                <a class="navbar-brand" class="fa fa-fw fa-home" href="{{url_for('main.index')}}" style="font-size:x-large; font-weight: bold; color:blue;">Home </a></li>
+      </div>
+    </div>
+      <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+               {% if current_user.is_authenticated %}
+
+                   <li><a href="/" style="font-weight:bold;">{{current_user.username.capitalize()}} </a></li>
+                   <li><a href="{{url_for('auth.logout')}}" style="color:blue;"><b>Sign out</b></a></li>
+
+               {%else%}
+                   <li><a href="{{url_for('auth.login')}}" style="color:rgb(230, 21, 31);"><b>Sign in</b></a></li>
+
+               {%endif%}
+            </ul>
+       </div>
+  </div>
+</div>
+  </body>
+</nav>
+
+</html>

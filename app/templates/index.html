@@ -1,0 +1,28 @@
+
+{% extends 'base.html'%} {% import 'macros.html' as macro%} {% block styles%} {{
+    super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+    {% endblock %} {% block content %}
+    <div class="container">
+      <div style=" background-color:rgb(63, 150, 109); background-repeat: no-repeat;background-size:cover;color: white;">
+        <p class="text-center" style="font-size: 2.7em;"> <b>Welcome to my wonderful <br> pitch application</b></p>
+        <h3 class="text-left" style="padding-left: 2.3em;"><a class="btn btn-primary" href="/add/category"><span class="glyphicon glyphicon-plus"> </span> Click to add Pitch</a></h3>
+        <p style="padding-left: 4em; text-decoration: none;"><b>Pitch Categories</b></p>
+        <ul>
+        {{ macro.displayCategoryList(categories) }}
+        </ul>
+      </div>
+    </div>
+    
+    {% endblock %} {% macro displayPitches(pitch_list) %}
+    <div class="container">
+    <div class="col-md-4" style="padding-left:4em;">
+      <h1>{{ pitches.pitch }}</h1>
+    </div>
+    <div class="grid-container">
+      <p>Posted On: {{ pitches.date_posted.strftime("%m/%d/%Y, %H:%M:%S")}}</p>
+      <a href="/pitch/{{pitches.id}}"><h2>Comment</h2></a>
+    </div>
+    </div>
+    
+    {% endmacro %}

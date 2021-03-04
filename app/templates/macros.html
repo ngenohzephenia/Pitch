@@ -1,0 +1,34 @@
+<div class="container">
+    {% macro displayCategoryList(category_list) %}
+      {% for category in category_list%}
+            <div style="padding-left: 4em;">
+              <a href="{{url_for('.new_category',id=category.id)}}"><p style="color: white;">{{category.name|upper}}</p></a>
+            </div>
+      {% endfor %}
+    <!-- {% endmacro %} -->
+    {% macro displayPitches(pitch_list) %}
+    </div>
+    {% for pitches in pitch_list %}
+      <div class="container">
+      <div class="col-md-10">
+            <p>{{pitches.name}}</p>
+              <h3>{{pitches.pitch}}</h3>
+                <button><a href=" {{url_for('.view_pitch',id=pitches.id)}}">Read comments</a></button>
+                <button><a href=" {{url_for('.post_comment',id=pitches.id)}}">Comment</a></button>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    <!-- {% endmacro %} -->
+    
+    
+    {% macro displaySpecificPitch(specific_pitch_list) %}
+     {% for comment in specific_pitch_list %}
+        <div class="col-md-12">
+        <br>
+            <p>{{comment.comment}}</p>
+             <p>{{comment.time_posted.strftime("%m/%d/%Y, %H:%M")}}</p>
+        </div>
+      {% endfor %}
+    {% endmacro %}
+    

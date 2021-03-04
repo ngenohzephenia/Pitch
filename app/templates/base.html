@@ -1,0 +1,19 @@
+{% extends 'bootstrap/base.html'%} {%block styles %} {{super()}} {{
+    simplemde.css}} {{ simplemde.js }} {% endblock %} {% block navbar %} {% include
+    'navbar.html' %} {% endblock %}
+    
+    <!DOCTYPE html>
+    <html>
+      <div class="container">
+        <head>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </head>
+        <body>
+          <div class="container"></div>
+          {% block content %} {% endblock%}
+        </body>
+      </div>
+    </html>

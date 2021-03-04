@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+ {{ super() }}
+ {% endblock %}
+
+
+{% block conntent %}
+<title> {{ title }} </title>
+
+<div class= "container">
+
+<div class="column">
+
+<div class=" col-md-6 create-group">
+{{ wtf.quick_form(category_form) }}
+</div>
+</div>
+</div> 
+{% endblock %}
